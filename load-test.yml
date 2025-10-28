@@ -1,0 +1,13 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 60 # Test duration in seconds
+      arrivalRate: 10 # Number of virtual users (new requests) per second
+      rampTo: 20 # Ramp up from 10 to 20 during the test
+      name: "Warm up and ramp up"
+
+scenarios:
+  - name: "Test multiple API endpoints"
+    flow:
+      - get:
+          url: "/"
